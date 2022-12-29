@@ -22,9 +22,8 @@
  * Define Global Variables
  *
  */
-
-var sectionNum = document.querySelectorAll("section").length; // define section numbers
-var sections = document.querySelectorAll("section"); // define all sections
+let sectionNum = document.querySelectorAll("section").length; // define section numbers
+let sections = document.querySelectorAll("section"); // define all sections
 
 /**
  * End Global Variables
@@ -40,10 +39,10 @@ var sections = document.querySelectorAll("section"); // define all sections
 
 // build the nav
 
-for (let i = 0; i < sectionNum; i++) {
+for (i = 0; i < sectionNum; i++) {
   // loop throught section numbers
-  var listItem = document.createElement("li"); // create list item
-  var link = document.createElement("a"); // create link
+  let listItem = document.createElement("li"); // create list item
+  let link = document.createElement("a"); // create link
   link.classList.add("menu__link"); // add class to link
   link.href = "#section" + (i + 1); // dynamically add href attribute to link
   link.textContent = "Section " + (i + 1); // dynamically name the link
@@ -83,7 +82,7 @@ for (let item of anchorlinks) {
     target.scrollIntoView({
       // scroll to target with smooth effect to the upper edge of element
       behavior: "smooth",
-      block: "start",
+      block: "center",
     });
     history.pushState(null, null, hashval);
     e.preventDefault();
@@ -119,26 +118,6 @@ if (links.length) {
     });
   });
 }
-
-// // add active class to links in navbar with scroll
-// const navLi = document.querySelectorAll("a");
-// window.onscroll = () => {
-//   var current = "";
-
-//   sections.forEach((section) => {
-//     const sectionTop = section.offsetTop;
-//     if (scrollY >= sectionTop) {
-//       current = section.getAttribute("id");
-//     }
-//   });
-
-//   navLi.forEach((a) => {
-//     a.classList.remove("link_active");
-//     if (a.classList.contains(current)) {
-//       a.classList.add("link_active");
-//     }
-//   });
-// };
 
 // scroll to top
 
